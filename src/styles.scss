@@ -1,32 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+
+body {
     font-size: .875rem;
 }
+
 @import './assets/sass/style.scss';
 @import './assets/css/dataTables.bootstrap4.min.css';
-
-
 .nav-sidebar {
-    .nav-item{
-        .nav-link{
+    .nav-item {
+        .nav-link {
             display: flex;
             align-items: center;
-       
-            .link-title{
+            .link-title {
                 margin-left: 30px;
             }
-            .link-arrow{
+            .link-arrow {
                 width: 14px;
                 height: 14px;
                 margin-left: auto;
                 transition: all .3s ease-in-out;
                 color: inherit;
             }
-            .link-icon{
+            .link-icon {
                 width: 16px;
             }
         }
-        .nav-icon{
+        .nav-icon {
             width: 16px;
         }
     }
@@ -35,7 +34,7 @@ body{
 // .preloader{
 //     background-color: transparent !important;
 // }
-#global-loader{
+#global-loader {
     justify-content: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
@@ -46,7 +45,6 @@ body{
     height: 100vh;
     display: flex;
     align-items: center;
-
     .whirly-loader:not(:required) {
         animation: whirly-loader 1.25s linear infinite;
         background: 0 0;
@@ -60,31 +58,111 @@ body{
         transform-origin: 50% 50%;
         -webkit-transform-origin: 50% 50%;
         -ms-transform-origin: 50% 50%;
-        border-radius: 100%}
-   
+        border-radius: 100%
+    }
 }
 
 @keyframes loader {
     to {
-    left: -100vw;
-}
-}@-webkit-keyframes whirly-loader {
-    0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-}
-to {
-    -webkit-transform: rotate(1turn);
-    transform: rotate(1turn);
-}
-}@keyframes whirly-loader {
-    0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-}
-to {
-    -webkit-transform: rotate(1turn);
-    transform: rotate(1turn);
-}
+        left: -100vw;
+    }
 }
 
+@-webkit-keyframes whirly-loader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes whirly-loader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn);
+    }
+}
+
+.logoTextcolor {
+    color: #1b2850;
+    font-weight: bold;
+}
+
+.nav-category {
+    color: #1b2850;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content-wrapper {
+    .content {
+        padding: 0 0.5rem;
+    }
+}
+
+.buttons-csv {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: #fff;
+    text-align: center;
+    // padding: 5px;
+    background-color: transparent;
+    &::before {
+        content: url('./assets/img/icons/csv-32.png');
+        width: 15px;
+    }
+    span {
+        display: none;
+    }
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.buttons-excel {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: #fff;
+    text-align: center;
+    // padding: 5px;
+    background-color: transparent;
+    &::before {
+        content: url('./assets/img/icons/exel-32.png');
+        width: 15px;
+    }
+    span {
+        display: none;
+    }
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.buttons-print {
+    border: 1px solid #f1f1f1;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: #fff;
+    text-align: center;
+    // padding: 5px;
+    background-color: transparent;
+    &::before {
+        content: url('./assets/img/icons/printer-32.png');
+        width: 15px;
+    }
+    span {
+        display: none;
+    }
+    &:hover {
+        opacity: 0.6;
+    }
+}

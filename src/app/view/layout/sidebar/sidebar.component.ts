@@ -34,7 +34,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.menuItems = MENU_ITEMS_ADMIN
+    this.menuItems = MENU_ITEMS_ADMIN // admin or Store Admin menu
+    // this.menuItems = MENU_ITEMS_SUPERADMIN // super admin
 
 
   }
