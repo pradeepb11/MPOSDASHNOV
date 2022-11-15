@@ -1,1 +1,81 @@
-<p>login works!</p>
+<div class="container">
+
+    <div class="img">
+        <img src="./assets/img/bg03.svg" alt="BG">
+    </div>
+
+    <div class="login-content">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+
+            <div class="title-container">
+               <div class="d-flex justify-content-center align-items-center ">
+                <img src="./assets/img/mposlogo.png" style="width: 50px" alt=""> <h2 class="text-primary">MPOS</h2>
+               </div> 
+                <h2>Hello, Friends!</h2>
+                <p>Enter your personal detail and start journey with us.</p>
+            </div>
+
+
+            <div class="login-inner-content">
+
+
+                <div class="input-div one justify-content-start align-items-center">
+                    <div class="i">
+                        <i class="far fa-user-circle"></i>
+                    </div>
+                    <div class="div">
+                        <label class="form-label text-muted" for="username">Username<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" formControlName="username" [ngClass]="{
+                            'is-invalid': submitted && f['username'].errors && f['username'].touched,
+                            'is-valid': f['username'].touched && f['username'].valid 
+                            }" autocomplete="off" placeholder="Username " >
+                            <div *ngIf="f['username'].touched && f['username'].invalid" class="invalid-feedback">
+                                <div *ngIf="f['username'].errors?.['required']">
+                                    Please Enter Your username !
+                                </div>
+
+                                <div *ngIf="f['username'].errors?.['pattern']">
+                                    Username is invalid !
+                                </div>
+
+                            </div>
+                    </div>
+                </div>
+
+                <div class="input-div pass">
+                    <div class="i">
+                        <i class="posabso iconsright" [class]="show_eye ? 'fas ms-2 fa-eye' : 'fas ms-2 fa-eye-slash'" (click)="showPassword()"></i>
+                    </div>
+                    <div class="div">
+                        <label class="form-label text text-muted " for="password">Password <span class="text-danger">*</span></label>
+                        <input [type]="show_button ? 'text' : 'password'" id="password" class="form-control " formControlName="password" placeholder="Password" [ngClass]="{
+                            'is-invalid': submitted && f['password'].errors && f['password'].touched,
+                            'is-valid': f['password'].touched && f['password'].valid 
+                        }" autocomplete="off" />
+                        <div *ngIf="f['password'].touched && f['password'].invalid" class="invalid-feedback">
+                            <div *ngIf="f['password'].errors?.['required']">
+                                Please Enter Your Password!
+                            </div>
+                            <div *ngIf="f['password'].errors?.['minlength']">
+                                Password must be at least 6 characters
+                            </div>
+                            <div *ngIf="f['password'].errors?.['maxlength']">
+                                Password must not exceed 20 characters
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#">Forgot password </a>
+
+            </div>
+
+            <input type="submit" class="btn" value="Login" [disabled]="!loginForm.valid">
+
+            <h5>Not a member ? <a href="#">Create Account</a></h5>
+
+        </form>
+    </div>
+</div>

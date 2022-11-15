@@ -4,12 +4,12 @@ import { BaseComponent } from './view/layout/base/base.component';
 
 const routes: Routes = [
   
-   { path: 'auth', loadChildren: () => import('./view/pages/auth/auth.module').then(m => m.AuthModule) }, 
+   { path: '', loadChildren: () => import('./view/pages/auth/auth.module').then(m => m.AuthModule) }, 
    {
     path:'',
     component:BaseComponent,
     children:[
-      { path: '', loadChildren: () => import('./view/pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
+      { path: 'dashboard', loadChildren: () => import('./view/pages/dashboard/dashboard.module').then(m => m.DashboardModule) },
       
       { path: 'customer', loadChildren: () => import('./view/pages/customer/customer.module').then(m => m.CustomerModule) },
 

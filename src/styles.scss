@@ -6,6 +6,16 @@ body {
 
 @import './assets/sass/style.scss';
 @import './assets/css/dataTables.bootstrap4.min.css';
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border-color: red
+}
+
+.invalid-feedback {
+    display: block;
+}
+
 .nav-sidebar {
     .nav-item {
         .nav-link {
