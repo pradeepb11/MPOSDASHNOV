@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="table-responsive">
-                    <table class="table datanew dataTable no-footer" id="example1">
+                    <table datatable [dtOptions]="dtOptions"  [dtTrigger]="dtTrigger"  class="table datanew dataTable no-footer ">
                         <thead>
                             <tr>
                                 <th>Product Id</th>
@@ -71,26 +71,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-
+                            <tr *ngFor="let data of productsLists">
+                                <td>{{data.product_id}}</td>
                                 <td class="productimgname">
-                                    <a href="javascript:void(0);" class="product-img">
-                                        <img src="" alt="product">
+                                    <a class="product-img">
+                                        <img src="{{data.product_image_path}}" alt="product">
                                     </a>
-                                    <a href="javascript:void(0);">Macbook pro</a>
+                                    <a href="javascript:void(0);">{{data.product_name}}</a>
                                 </td>
-                                <td>PT001</td>
-                                <td>Computers</td>
-                                <td>N/D</td>
-                                <td>1500.00</td>
-                                <td>pc</td>
-                                <td>100.00</td>
-                                <td>Admin</td>
+                                <td>{{data.product_sku}}</td>
+                                <td>{{data.category_name}}</td>
+                                <td>{{data.product_type}}</td>
+                                <td>{{data.price_type }}</td>
+                                <td>{{data.product_description}}</td>
+                                <td>{{data.product_price | currency:"&#8377;"}}</td>
                                 <td>
-                                    <a class="me-3" href="product-details.html">
+                                    <a class="mr-3" href="product-details.html">
                                         <img src="assets/img/icons/eye.svg" alt="img">
                                     </a>
-                                    <a class="me-3" href="editproduct.html">
+                                    <a class="mr-3" href="editproduct.html">
                                         <img src="assets/img/icons/edit.svg" alt="img">
                                     </a>
                                     <a class="confirm-text" href="javascript:void(0);">

@@ -31,11 +31,11 @@ export class AuthinterceptorInterceptor implements HttpInterceptor {
     console.log(currentUser);
 
     // console.log(currentUser.Data.access_token)
-    if (currentUser && currentUser.data.token != null) {
+    if (currentUser && currentUser.token != null) {
       // console.log(currentUser.Data.token)
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${currentUser.data.token}`
+          Authorization: `Bearer ${currentUser.token}`
         },
       });
     }

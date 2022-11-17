@@ -8,7 +8,7 @@ import { AttributesComponent } from './attributes/attributes.component';
 import { TypeComponent } from './type/type.component';
 import { SlabpriceComponent } from './slabprice/slabprice.component';
 import { ListComponent } from './list/list.component';
-
+import { DataTablesModule } from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { ListComponent } from './list/list.component';
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    DataTablesModule
   ]
 })
 export class ProductModule { }

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   // setvalidate Login Form
     setvalidateLoginForm(){
       this.loginForm = this.fb.group({
-        username: new FormControl('', Validators.required),
+        username: new FormControl('', [Validators.required,Validators.email, Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')]),
         // email: new FormControl('', [Validators.required,Validators.email, Validators.pattern('[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}')]),
         password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)] ),
       })
@@ -66,8 +66,9 @@ export class LoginComponent implements OnInit {
       (res) =>{
       
         console.log(res)
-        if(res.status === 'success'){
-          this.router.navigate(['/auth/dashboard'], {relativeTo: this.route})
+        if(res.response.status === 'success'){
+          alert('Sucessfully Login');
+          this.router.navigate(['/dashboard'], {relativeTo: this.route})
         }else{
           this.loginForm.reset();
         } 

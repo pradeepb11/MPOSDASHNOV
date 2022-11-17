@@ -33,7 +33,7 @@ export class AuthService {
    private loggedInStatus = JSON.parse(localStorage.getItem('loggedInUser') || ('false'));
 
    public get loggedInUserValue(): User {
-    // console.log(this.loggedUserSubject.value);
+    console.log(this.loggedUserSubject.value);
     return this.loggedUserSubject.value;
   }
 
@@ -45,15 +45,17 @@ export class AuthService {
    // loginUser
    
 
-   loginUser(email: string, password:string): Observable<any>{
-    return this.http.post<any>(`${baseUrl}/auth/login`, {email, password}, httpOptions)
+   loginUser(username: string, password:string): Observable<any>{
+    return this.http.post<any>(`${baseUrl}/auth/login`, {username, password}, httpOptions)
     .pipe(map(
       (res) =>{
-        // console.log(res)
-        if(res.Status === 'Success'){
+        console.log(res)
+        if(res.response.status === 'success'){
+          console.log(res)
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('loggedInUser', JSON.stringify(res));
-        this.loggedUserSubject.next(res);
+        console.log(res.data)
+        localStorage.setItem('loggedInUser', JSON.stringify(res.data));
+        this.loggedUserSubject.next(res.data);
         }else{
          localStorage.removeItem('loggedInUser');
           }

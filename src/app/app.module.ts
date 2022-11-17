@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 // toaster service
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
 import { authInterceptorProviders } from 'src/app/helper/authinterceptor.interceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -18,9 +20,6 @@ import { authInterceptorProviders } from 'src/app/helper/authinterceptor.interce
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot({
-      positionClass :'toast-bottom-right'
-    }),
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
